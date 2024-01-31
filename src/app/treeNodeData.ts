@@ -6,6 +6,3 @@ export interface TreeNode{
     children?: TreeNode[]
 }
 
-// export interface JsonDataResponse {
-//     array: Array<TreeNodeData>;
-// }

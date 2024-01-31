@@ -19,16 +19,9 @@ export class ViewComponent implements OnInit{
   constructor(private dataFetch: DataFetchService){}
 
   ngOnInit(): void {
-    this.dataFetch.getJsonData().subscribe((data)=>{
-      this.newData = data;
-    })
-  }
-
-  view(){
     this.jsonData =  this.dataFetch.generateTree();
     this.viewTree = true;
   }
-
 
 
 }

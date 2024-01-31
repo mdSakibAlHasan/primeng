@@ -7,30 +7,15 @@ import { TreeNode } from 'primeng/api';
 @Injectable({
   providedIn: 'root'
 })
-export class DataFetchService implements OnInit{
+export class DataFetchService {
  
-  jsonURL = "assets/new.json"
+  jsonURL = "assets/Catchment.json"
   jsonData : any;
   constructor(private http: HttpClient) {
-    this.http.get("assets/Catchment.json").subscribe((code)=>{
+    this.http.get(this.jsonURL).subscribe((code)=>{
       this.jsonData = code;
-      console.log(code);
-      // this.generateTree();
     })
   }
-
-  ngOnInit(): void {
-    // this.http.get("assets/Catchment.json").subscribe((code)=>{
-    //   this.jsonData = code;
-    //   console.log(code);
-    //   // this.generateTree();
-    // })
-  }
-
-  getJsonData(){
-    return this.http.get(this.jsonURL);
-  }
-
 
   
 
@@ -41,10 +26,7 @@ export class DataFetchService implements OnInit{
       
       this.jsonData.forEach((element: { Name: any; Code: any; ParentId: any; Id: any; }) => {
         map.set(element.Id, {label: element.Name, key: element.Id, children: []})
-        //console.log(element.Id," ",element.Name)
       });
-
-      
 
 
       this.jsonData.forEach((element: any) =>{
@@ -58,22 +40,11 @@ export class DataFetchService implements OnInit{
           }
         }
       })
-      this.printTree(treeNodes)
-      console.log("retun something")
+
       return treeNodes;
     }
-    console.log("return null");
+   
     return null
   }
 
-  printTree(nodes: any){
-    for(let node of nodes){
-      console.log(node.label,"  ", node.children?.length)
-      if(node.children?.length && node.children?.length>0){
-        for(let n of node.children){
-          console.log(n.label, " " ,"  ", n.children?.length)
-        }
-      }
-    }
-  }
 }
