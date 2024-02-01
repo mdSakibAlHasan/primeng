@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataFetchService } from '../data-fetch.service';
 import { TreeModule } from 'primeng/tree';
+import { TreeNode } from 'primeng/api';
 // import { JsonDataResponse, TreeNodeData } from '../treeNodeData';
 
 @Component({
@@ -12,15 +13,19 @@ import { TreeModule } from 'primeng/tree';
 })
 export class ViewComponent implements OnInit{
   jsonData: any;
-  newData: any;
-  viewTree: boolean = false;
+  selectedFile!: TreeNode;
   
   
   constructor(private dataFetch: DataFetchService){}
 
   ngOnInit(): void {
     this.jsonData =  this.dataFetch.generateTree();
-    this.viewTree = true;
+  }
+
+  nodeSelect(event: any) {
+    // this.messageService.add({ severity: 'info', summary: 'Node Selected', detail: event.node.label });
+    console.log("Selected node is: ",event.node.label," and key is ",event.node.key)
+    console.log("Selected node ",this.selectedFile);
   }
 
 
