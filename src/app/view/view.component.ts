@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DataFetchService } from '../data-fetch.service';
 import { TreeModule } from 'primeng/tree';
-import { TreeNode } from 'primeng/api';
-// import { JsonDataResponse, TreeNodeData } from '../treeNodeData';
+
 
 @Component({
   selector: 'app-view',
@@ -12,8 +11,10 @@ import { TreeNode } from 'primeng/api';
   styleUrl: './view.component.css'
 })
 export class ViewComponent implements OnInit{
+  @Output() newItemEvent = new EventEmitter<string>();
+  
   jsonData: any;
-  selectedFile!: TreeNode;
+  selectedFile!: any;
   
   
   constructor(private dataFetch: DataFetchService){}
@@ -23,9 +24,13 @@ export class ViewComponent implements OnInit{
   }
 
   nodeSelect(event: any) {
-    // this.messageService.add({ severity: 'info', summary: 'Node Selected', detail: event.node.label });
-    console.log("Selected node is: ",event.node.label," and key is ",event.node.key)
-    console.log("Selected node ",this.selectedFile);
+      console.log("Selected node is: ", event.node.label, " and key is ", event.node.key);
+      console.log("Selected node ", this.selectedFile);
+      this.sendTableData();
+  }
+
+  sendTableData(){
+    this.newItemEvent.emit(this.selectedFile)
   }
 
 
