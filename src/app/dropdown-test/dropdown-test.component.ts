@@ -17,6 +17,7 @@ export class DropdownTestComponent {
  
   treeData: any;
   formGroup!: FormGroup;
+  selectedNode: any;
 
   constructor(private dataFetch: DataFetchService){
     this.treeData = dataFetch.generateTree();
@@ -26,6 +27,11 @@ export class DropdownTestComponent {
     this.formGroup = new FormGroup({
         selectedNodes: new FormControl()
     });
+  }
+
+  submit(){
+    console.log(this.formGroup.value.selectedNodes.label)
+    this.selectedNode = this.formGroup.value.selectedNodes.label;
   }
    
 }

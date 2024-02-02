@@ -1,0 +1,13 @@
+.bold {
+    font-weight: bold;
+  }
+
+  
+  .custom-treeselect ::ng-deep .p-treeselect-items-wrapper {
+    font-size: 14px;
+  }
+  
+  .bold-text {
+    font-weight: bold;
+  }
+  
