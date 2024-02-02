@@ -1,4 +1,6 @@
 
 <div class="card flex justify-content-center">
-    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City"></p-dropdown>
+  <form [formGroup]="formGroup">
+      <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" formControlName="selectedNodes" [options]="treeData" placeholder="Select Item"></p-treeSelect>
+  </form>
 </div>

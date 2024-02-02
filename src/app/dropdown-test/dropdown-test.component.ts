@@ -1,31 +1,31 @@
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { DataFetchService } from '../data-fetch.service';
+import { TreeSelectModule } from 'primeng/treeselect';
+import { CommonModule } from '@angular/common';
 
-interface City {
-  name: string;
-  code: string;
-}
 
 @Component({
   selector: 'app-dropdown-test',
   standalone: true,
-  imports: [DropdownModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule,DropdownModule, ReactiveFormsModule, TreeSelectModule],
   templateUrl: './dropdown-test.component.html',
   styleUrl: './dropdown-test.component.css'
 })
 export class DropdownTestComponent {
-  cities: City[] | undefined;
+ 
+  treeData: any;
+  formGroup!: FormGroup;
 
-    selectedCity: City | undefined;
+  constructor(private dataFetch: DataFetchService){
+    this.treeData = dataFetch.generateTree();
+  }
 
-    ngOnInit() {
-        this.cities = [
-            { name: 'New York', code: 'NY' },
-            { name: 'Rome', code: 'RM' },
-            { name: 'London', code: 'LDN' },
-            { name: 'Istanbul', code: 'IST' },
-            { name: 'Paris', code: 'PRS' }
-        ];
-    }
+  ngOnInit() {
+    this.formGroup = new FormGroup({
+        selectedNodes: new FormControl()
+    });
+  }
+   
 }
