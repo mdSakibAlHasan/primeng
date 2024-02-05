@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
-import { DataFetchService } from '../data-fetch.service';
+import { DataFetchService } from '../service/data-fetch.service';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { CommonModule } from '@angular/common';
 

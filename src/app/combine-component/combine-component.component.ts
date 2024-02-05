@@ -17,6 +17,6 @@ export class CombineComponentComponent {
 
   showTable(tableData:any){
     this.tableData = tableData;
-    console.log(tableData," show here");
+    // console.log(tableData," show here");
   }
 }

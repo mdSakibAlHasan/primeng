@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CombineComponentComponent } from './combine-component/combine-component.component';
@@ -11,6 +11,6 @@ import { DropdownTestComponent } from './dropdown-test/dropdown-test.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent{
   title = 'treeGenerate';
 }

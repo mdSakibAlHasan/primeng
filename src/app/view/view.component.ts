@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { DataFetchService } from '../data-fetch.service';
+import { DataFetchService } from '../service/data-fetch.service';
 import { TreeModule } from 'primeng/tree';
 
 
@@ -25,8 +25,8 @@ export class ViewComponent implements OnInit{
   }
 
   nodeSelect(event: any) {
-      console.log("Selected node is: ", event.node.label, " and key is ", event.node.key);
-      console.log("Selected node ", this.selectedFile);
+      // console.log("Selected node is: ", event.node.label, " and key is ", event.node.key);
+      // console.log("Selected node ", this.selectedFile);
       this.sendTableData();
   }
 
