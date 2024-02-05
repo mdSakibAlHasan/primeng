@@ -4,6 +4,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { DataFetchService } from '../service/data-fetch.service';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { CommonModule } from '@angular/common';
+import { NewDataService } from '../service/new-data.service';
 
 
 @Component({
@@ -19,8 +20,8 @@ export class DropdownTestComponent {
   formGroup!: FormGroup;
   selectedNode: any;
 
-  constructor(private dataFetch: DataFetchService){
-    this.treeData = dataFetch.generateTree();
+  constructor(private dataFetch: DataFetchService, private newDataFetch: NewDataService){
+    this.treeData = dataFetch.generateTree(newDataFetch.getData());
   }
 
   ngOnInit() {

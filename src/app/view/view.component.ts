@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { DataFetchService } from '../service/data-fetch.service';
 import { TreeModule } from 'primeng/tree';
+import { NewDataService } from '../service/new-data.service';
 
 
 @Component({
@@ -18,10 +19,12 @@ export class ViewComponent implements OnInit{
   selectedFile!: any;
   
   
-  constructor(private dataFetch: DataFetchService){}
+  constructor(private dataFetch: DataFetchService, private newDataFetch: NewDataService){
+    
+  }
 
   ngOnInit(): void {
-    this.jsonData =  this.dataFetch.generateTree();
+    this.jsonData =  this.dataFetch.generateTree(this.newDataFetch.getData());
   }
 
   nodeSelect(event: any) {
