@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 export class TableEditingComponent {
   jsonData: any
   column: any;
+  uniqueKeys = new Set<string>();
 
   constructor(private fetchData: NewDataService) {
     this.jsonData = fetchData.getData();
@@ -31,5 +32,16 @@ export class TableEditingComponent {
 
   saveData(){
     console.log(this.jsonData);
+    console.log(this.getUniqueKeys())
+  }
+
+  getUniqueKeys(): Set<string> {
+    
+
+      Object.keys(this.jsonData[0]).forEach((key) => {
+        this.uniqueKeys.add(key);
+      });
+
+      return (this.uniqueKeys);
   }
 }
