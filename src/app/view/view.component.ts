@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { DataFetchService } from '../data-fetch.service';
 import { TreeModule } from 'primeng/tree';
 
@@ -11,6 +11,7 @@ import { TreeModule } from 'primeng/tree';
   styleUrl: './view.component.css'
 })
 export class ViewComponent implements OnInit{
+  @Input() selectMode: string = "single"
   @Output() newItemEvent = new EventEmitter<string>();
   
   jsonData: any;

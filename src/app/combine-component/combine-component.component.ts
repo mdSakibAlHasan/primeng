@@ -13,6 +13,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 })
 export class CombineComponentComponent {
   tableData: any
+  selectMode: string = "checkbox"
 
   showTable(tableData:any){
     this.tableData = tableData;

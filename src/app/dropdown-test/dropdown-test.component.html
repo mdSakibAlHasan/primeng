@@ -2,7 +2,7 @@
 <div class="card flex justify-content-center">
   <form [formGroup]="formGroup">
       <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" formControlName="selectedNodes" [options]="treeData" placeholder="Select Item"
-      [filter]="true" [filterInputAutoFocus]="true"></p-treeSelect>
+      [filter]="true" [filterInputAutoFocus]="true" ></p-treeSelect>
   </form>
   
   <button  (click)="submit()">Submit</button>
