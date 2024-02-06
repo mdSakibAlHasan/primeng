@@ -1,11 +1,17 @@
 
 <div class="card flex justify-content-center">
   <form [formGroup]="formGroup">
-      <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" formControlName="selectedNodes" [options]="treeData" placeholder="Select Item"
+      <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" formControlName="selectedNodes" [options]="treeData" selectionMode="checkbox" placeholder="Select Item"
       [filter]="true" [filterInputAutoFocus]="true" ></p-treeSelect>
-  </form>
+      <br/>
+      <br/>
+      <p-calendar formControlName="dateSelect" selectionMode="range" [readonlyInput]="true" [minDate]="minDate" [maxDate]="maxDate"  dateFormat="dd.MM.yy" placeholder="Select range date"></p-calendar>
+      <br/>
+      <br/>
+      <p-calendar formControlName="monthSelect" view="month" dateFormat="MM/yy" [readonlyInput]="true"></p-calendar>
+    </form>
   
   <button  (click)="submit()">Submit</button>
-  <p>{{selectedNode}}</p>
+  <!-- <p>{{selectedNode}}</p> -->
 
 </div>

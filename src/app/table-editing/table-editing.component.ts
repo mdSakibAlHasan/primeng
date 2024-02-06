@@ -28,9 +28,7 @@ export class TableEditingComponent {
       (error: any) => {
         console.error('Error fetching data:', error);
       }
-    );
-
-   
+    ); 
   }
 
   saveData(){
