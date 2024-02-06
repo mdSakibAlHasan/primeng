@@ -18,5 +18,9 @@ export class NewDataService {
     return this.jsonData;
   }
 
+  getAllData(){
+    return this.http.get(this.jsonURL);
+  }
+
 
 }

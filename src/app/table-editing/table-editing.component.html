@@ -1,16 +1,16 @@
 <div class="card">
-    <p-table [columns]="column" [value]="jsonData" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [columns]="uniqueKeys" [value]="jsonData" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th *ngFor="let col of columns">
-                    {{ col.header }}
+                    {{ col }}
                 </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns">
             <tr>
                 <td *ngFor="let col of columns">
-                    <input type="text" [(ngModel)]="rowData[col.field]">
+                    <input type="text" [(ngModel)]="rowData[col]">
                     <!-- {{ rowData[col.field] }} -->
                 </td>
             </tr>

@@ -15,33 +15,26 @@ import { FormsModule } from '@angular/forms';
 export class TableEditingComponent {
   jsonData: any
   column: any;
-  uniqueKeys = new Set<string>();
+  uniqueKeys = new Array<string>();
 
-  constructor(private fetchData: NewDataService) {
-    this.jsonData = fetchData.getData();
-  }
+  constructor(private fetchData: NewDataService) {}
 
   ngOnInit() {
-      this.column = [
-          { field: 'Name', header: 'Name' },
-          { field: 'Code', header: 'Code' },
-          { field: 'UniqueCode', header: 'Unique code' },
-          { field: 'CreateTime', header: 'Create time' }
-      ];
+    this.fetchData.getAllData().subscribe(
+      (data: any) => {
+        this.jsonData = data;
+        this.uniqueKeys = Object.keys(this.jsonData[0]);
+      },
+      (error: any) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+
+   
   }
 
   saveData(){
-    console.log(this.jsonData);
-    console.log(this.getUniqueKeys())
+    console.log(this.jsonData); 
   }
 
-  getUniqueKeys(): Set<string> {
-    
-
-      Object.keys(this.jsonData[0]).forEach((key) => {
-        this.uniqueKeys.add(key);
-      });
-
-      return (this.uniqueKeys);
-  }
 }
