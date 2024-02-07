@@ -2,19 +2,17 @@
     <p-table [columns]="column" [value]="jsonData" styleClass="p-datatable-gridlines"   [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header" let-columns>
             <tr>
-                <th *ngFor="let col of columns" pSortableColumn={{col}}>
+                @for (col of columns; track $index) {
+                <th>
                     {{ col.header }}
-                    <!-- <p-sortIcon field={{col}}> -->
-                    <p-button (click)="op.toggle($event); customSort(col)"  icon="pi pi-filter" field="code"  ></p-button>
-                <!-- </p-sortIcon> -->
-                    <!-- <p-button (click)="'1'.toggle($event)" icon="pi pi-filter" ></p-button> -->
+                    <p-button (click)="op.toggle($event); customSort($index)"  icon="pi pi-filter" field="code"  ></p-button>
                 </th>
+                }
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns">
             <tr>
                 <td *ngFor="let col of columns">
-                    <!-- <input type="text" [(ngModel)]="rowData[col.field]"> -->
                     {{ rowData[col.field] }}
                 </td>
             </tr>
@@ -27,25 +25,11 @@
 
 
 
-
-<!-- Pop up option -->
-<!-- @for (col of column; track $index) {
-    <p-overlayPanel {{col}}>
-        <div class="card flex justify-content-center">
-            <div class="flex flex-column gap-2">
-                <div *ngFor="let category of categories" class="field-checkbox">
-                <p-checkbox (onChange)="changeValue(category)" [label]="category" name="group" [(ngModel)]="selectedCategories" [value]="category"></p-checkbox>
-                </div>
-            </div>
-        </div>
-    </p-overlayPanel>
-} -->
-
 <p-overlayPanel #op>
     <div class="card flex justify-content-center">
         <div class="flex flex-column gap-2">
             <div *ngFor="let category of categories" class="field-checkbox">
-            <p-checkbox (onChange)="changeValue(category)" [label]="category" name="group" [(ngModel)]="selectedCategories" [value]="category"></p-checkbox>
+            <p-checkbox (onChange)="changeValue(category)" [label]="category" name="group" [(ngModel)]="selectedCategories[selectedColumn]" [value]="category"></p-checkbox>
             </div>
         </div>
     </div>

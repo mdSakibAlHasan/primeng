@@ -6,7 +6,6 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-import { SortEvent } from 'primeng/api';
 
 @Component({
   selector: 'app-table-sort',
@@ -16,10 +15,10 @@ import { SortEvent } from 'primeng/api';
   styleUrl: './table-sort.component.css'
 })
 export class TableSortComponent {
-[x: string]: any;
+
   jsonData: any
   column: any;
-  selectedCategories: any[] = [];
+  selectedCategories: any[][] = [];
   selectedColumn: any
 
     categories: any[] = [
@@ -32,10 +31,10 @@ export class TableSortComponent {
 
   ngOnInit() {
     this.column = [
-        { field: 'Name', header: 'Name' },
-        { field: 'Code', header: 'Code' },
-        { field: 'UniqueCode', header: 'Unique code' },
-        { field: 'CreateTime', header: 'Create time' }
+        { field: 'Name', header: 'Name', index: 0 },
+        { field: 'Code', header: 'Code' , index: 1 },
+        { field: 'UniqueCode', header: 'Unique code' ,index: 2 },
+        { field: 'CreateTime', header: 'Create time', index: 3 }
     ];
   }
 
@@ -45,14 +44,13 @@ export class TableSortComponent {
 
 
   changeValue(value: any) {  
-    if(this.selectedCategories.length === 2) {
-      this.selectedCategories = [value]; //as selectedValue is array
+    if(this.selectedCategories[this.selectedColumn].length === 2) {
+      this.selectedCategories[this.selectedColumn] = [value]; //as selectedValue is array
     } 
-    console.log(value," sort of ", this.selectedColumn.field)
+    console.log(value," sort of ", this.column[this.selectedColumn].field)
   }
 
-  customSort(col: string) {
-   this.selectedColumn = col;
+  customSort(col: number) {
+    this.selectedColumn = col;
   }
-
 }
