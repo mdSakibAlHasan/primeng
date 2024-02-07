@@ -1,10 +1,12 @@
 <div class="card">
-    <p-table [columns]="column" [value]="jsonData" styleClass="p-datatable-gridlines" (sortFunction)="customSort($event)" [customSort]="true" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [columns]="column" [value]="jsonData" styleClass="p-datatable-gridlines"   [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header" let-columns>
             <tr>
-                <th *ngFor="let col of columns" >
+                <th *ngFor="let col of columns" pSortableColumn={{col}}>
                     {{ col.header }}
-                    <p-button (click)="op.toggle($event)" icon="pi pi-filter" ></p-button>
+                    <!-- <p-sortIcon field={{col}}> -->
+                    <p-button (click)="op.toggle($event); customSort(col)"  icon="pi pi-filter" field="code"  ></p-button>
+                <!-- </p-sortIcon> -->
                     <!-- <p-button (click)="'1'.toggle($event)" icon="pi pi-filter" ></p-button> -->
                 </th>
             </tr>
