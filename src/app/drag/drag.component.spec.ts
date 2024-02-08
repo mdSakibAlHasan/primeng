@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DropdownTestComponent } from './dropdown-test.component';
+import { DragComponent } from './drag.component';
 
-describe('DropdownTestComponent', () => {
-  let component: DropdownTestComponent;
-  let fixture: ComponentFixture<DropdownTestComponent>;
+describe('DragComponent', () => {
+  let component: DragComponent;
+  let fixture: ComponentFixture<DragComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DropdownTestComponent]
+      imports: [DragComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DropdownTestComponent);
+    fixture = TestBed.createComponent(DragComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
