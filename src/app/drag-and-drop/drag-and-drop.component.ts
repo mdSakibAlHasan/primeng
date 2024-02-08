@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DragDropModule } from 'primeng/dragdrop';
 import { SplitterModule } from 'primeng/splitter';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-drag-and-drop',
   standalone: true,
-  imports: [CommonModule,DragDropModule, SplitterModule ],
+  imports: [CommonModule,DragDropModule, SplitterModule,DividerModule ],
   templateUrl: './drag-and-drop.component.html',
   styleUrl: './drag-and-drop.component.css'
 })
@@ -26,6 +27,7 @@ export class DragAndDropComponent implements OnInit{
     }
 
     dragStart(product: any) {
+      console.log("start: ", product);
         this.draggedProduct = product;
     }
 
@@ -39,7 +41,12 @@ export class DragAndDropComponent implements OnInit{
     }
 
     dragEnd() {
+      console.log("Drag end")
         this.draggedProduct = null;
+    }
+
+    dragRun(product: any){
+      console.log("run: ", product);
     }
 
     findIndex(product: any) {

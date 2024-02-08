@@ -1,17 +1,14 @@
-<div class="card flex flex-wrap gap-3">
-    <div class="p-2 border-1 surface-border border-round w-15rem">
-        <ul class="list-none flex flex-column gap-2 p-0 m-0">
-            <li *ngFor="let product of availableProducts" class="p-2 border-round shadow-1" pDraggable (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
-                {{product.name}}
-            </li>
-        </ul>
+<div class="ui-g">
+    <h4>Drag and Drop up and down</h4>
+      <div class="ui-g-12 ui-md-6 drop-column" 
+      [ngClass]="{'ui-highlight-car':draggedCar}">
+          <div *ngFor="let car of selectedCars; let i = index" (onDragStart)="dragStart2(car)" (onDragEnd)="dragEnd($event)"  pDraggable="cars">
+              <div style="height:25px;" pDroppable="cars" (dragenter)="dragEnter($event)" (dragleave)="dragLeave($event)" (onDrop)="drop($event,i,1)">
+                {{car.brand}}
+              </div>
+          </div>
+          <div style="height:25px;" pDroppable="cars"  *ngIf="selectedCars.length === 0" (dragenter)="dragEnter($event)" (dragleave)="dragLeave($event)" (onDrop)="drop($event)">
+                  
+          </div>
+      </div>
     </div>
-    <div class="p-2 border-1 surface-border border-round w-15rem" pDroppable (onDrop)="drop()">
-        <p class="text-center surface-border border-bottom-1">Drop Zone</p>
-        <ul class="list-none flex flex-column gap-2 p-0 m-0" *ngIf="selectedProducts" >
-            <li *ngFor="let product of selectedProducts" class="p-2 border-round shadow-1">
-                {{product.name}}
-            </li>
-        </ul>
-    </div>
-</div>
