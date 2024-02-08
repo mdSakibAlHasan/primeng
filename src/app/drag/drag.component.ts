@@ -27,8 +27,12 @@ export class DragComponent {
     
     dropItem(event: any,dropIndex: any){
         let index = this.findSelecteItem(this.dragItem);
+        //console.log(index," ",dropIndex," ", this.dragItem);
+        if(index == -1){
+            return;
+        }
         this.orderItem(this.items, index, dropIndex);
-        this.dragItem = null;
+        //this.dragItem = null;
         
         event.target.classList.remove("active");
     }

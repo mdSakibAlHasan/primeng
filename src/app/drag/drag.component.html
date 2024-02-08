@@ -2,7 +2,7 @@
 <div class="full-body">
     @for(item of items; track $index){
         <div class="single-div" (onDragStart)="startDrag(item)" (onDragEnd)="endDrag()"  pDraggable="drop">
-            <div pDroppable="drop" (dragenter)="enterDrag($event)" (dragleave)="leaveDrag($event)" (onDrop)="dropItem($event,$index)">
+            <div pDroppable="drop" (dragenter)="dropItem($event,$index)" (dragleave)="leaveDrag($event)" >
                 {{item}}
             </div>
         </div>
