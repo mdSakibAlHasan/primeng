@@ -1,11 +1,10 @@
-<div class="ui-g">
-    <h4>Drag and Drop up and down</h4>
-      <div class="ui-g-12 ui-md-6 drop-column" 
-      [ngClass]="{'ui-highlight-car':draggedCar}">
-          <div *ngFor="let car of selectedCars; let i = index" (onDragStart)="dragStart(car)" (onDragEnd)="dragEnd($event)"  pDraggable="cars">
-              <div style="height:25px;" pDroppable="cars" (dragenter)="dragEnter($event)" (dragleave)="dragLeave($event)" (onDrop)="drop($event,i,1)">
-                {{car.brand}}
-              </div>
-          </div>
-      </div>
-    </div>
+
+<div class="full-body">
+    @for(item of items; track $index){
+        <div class="single-div" (onDragStart)="startDrag(item)" (onDragEnd)="endDrag()"  pDraggable="drop">
+            <div pDroppable="drop" (dragenter)="enterDrag($event)" (dragleave)="leaveDrag($event)" (onDrop)="dropItem($event,$index)">
+                {{item}}
+            </div>
+        </div>
+    }
+</div>
