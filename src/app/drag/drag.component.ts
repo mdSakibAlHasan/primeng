@@ -22,16 +22,16 @@ export class DragComponent {
     ngOnInit() {
        
         this.selectedCars = [
-        {"brand": "VW", "year": 2012, "color": "Orange", "vin": "dsad231ff"},
-        {"brand": "Audi", "year": 2011, "color": "Black", "vin": "gwregre345"},
-        {"brand": "Renault", "year": 2005, "color": "Gray", "vin": "h354htr"},
-        {"brand": "BMW", "year": 2003, "color": "Blue", "vin": "j6w54qgh"},
-        {"brand": "Mercedes", "year": 1995, "color": "Orange", "vin": "hrtwy34"},
-        {"brand": "Volvo", "year": 2005, "color": "Black", "vin": "jejtyj"},
-        {"brand": "Honda", "year": 2012, "color": "Yellow", "vin": "g43gr"},
-        {"brand": "Jaguar", "year": 2013, "color": "Orange", "vin": "greg34"},
-        {"brand": "Ford", "year": 2000, "color": "Black", "vin": "h54hw5"},
-        {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"}
+        {"brand": "1", "year": 2012, "color": "Orange", "vin": "dsad231ff"},
+        {"brand": "2", "year": 2011, "color": "Black", "vin": "gwregre345"},
+        {"brand": "3", "year": 2005, "color": "Gray", "vin": "h354htr"},
+        {"brand": "4", "year": 2003, "color": "Blue", "vin": "j6w54qgh"},
+        {"brand": "5", "year": 1995, "color": "Orange", "vin": "hrtwy34"},
+        {"brand": "6", "year": 2005, "color": "Black", "vin": "jejtyj"},
+        {"brand": "7", "year": 2012, "color": "Yellow", "vin": "g43gr"},
+        {"brand": "8", "year": 2013, "color": "Orange", "vin": "greg34"},
+        {"brand": "9", "year": 2000, "color": "Black", "vin": "h54hw5"},
+        {"brand": "10", "year": 2013, "color": "Red", "vin": "245t2s"}
     ];
     }
     
@@ -68,6 +68,7 @@ export class DragComponent {
     }
 
     dragEnd(event: any) {
+        console.log("drag end")
         this.draggedCar = null;
     }
     
