@@ -12,10 +12,7 @@ import { DragDropModule } from 'primeng/dragdrop';
 export class DragComponent {
 
     selectedCars: any[] = [];
-    
     draggedCar: any;
-
-    draggedCar2: any;
     
     constructor() { }
     
@@ -39,22 +36,13 @@ export class DragComponent {
         this.draggedCar = car;
     }
 
-    dragStart2(car: any) {
-        this.draggedCar2 = car;
-    }
     
     drop(event: any,dropIndex?: any, position?: any) {
-        if(this.draggedCar) {
-            let draggedCarIndex = this.findIndexFromAvailableCars(this.draggedCar);
-            this.selectedCars = [...this.selectedCars, this.draggedCar];
-            // this.availableCars = this.availableCars.filter((val,i) => i!=draggedCarIndex);
-            this.draggedCar = null;
-        }
-        else if (this.draggedCar2) {
-            let index = this.findIndexFromSelectedCars(this.draggedCar2);
-            this.reorderArray(this.selectedCars, index, dropIndex);
-            this.draggedCar2 = null;
-        }
+        
+        let index = this.findIndexFromSelectedCars(this.draggedCar);
+        console.log("Drop: ",dropIndex," ",position," ",index);
+        this.reorderArray(this.selectedCars, index, dropIndex);
+        this.draggedCar = null;
         
         event.target.classList.remove("example-active");
     }
@@ -64,6 +52,7 @@ export class DragComponent {
     }
 
     dragLeave(event: any) {
+        console.log("Drag leave")
         event.target.classList.remove("example-active")
     }
 
@@ -72,16 +61,6 @@ export class DragComponent {
         this.draggedCar = null;
     }
     
-    findIndexFromAvailableCars(car: any) {
-        let index = -1;
-        // for(let i = 0; i < this.availableCars.length; i++) {
-        //     if(car.vin === this.availableCars[i].vin) {
-        //         index = i;
-        //         break;
-        //     }
-        // }
-        return index;
-    }
 
     findIndexFromSelectedCars(car: any) {
         let index = -1;
