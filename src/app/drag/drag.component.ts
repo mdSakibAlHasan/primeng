@@ -74,15 +74,32 @@ export class DragComponent {
     }
 
     reorderArray(value: any[], from: number, to: number) {
-        let target: number;
-        if(value && (from !== to)) {
-            if(to >= value.length) {
-                target = to - value.length;
-                while((target--) + 1) {
-                    value.push(undefined);
-                }
+        let fromValue = value[from], toValue = value[to],i;
+        if(from< to){
+            for(i=from;i<to;i++){
+                value[i] = value[i+1];
             }
-            value.splice(to, 0, value.splice(from, 1)[0]);
+            value[to] = fromValue;
+        }else{
+            for(i=from;i>to;i--){
+                value[i] = value[i-1];
+            }
+            value[to] = fromValue;
         }
+        // let first = value[from]
+        // let sec = value[to]
+        // let target: number;
+        // if(value && (from !== to)) {
+        //     if(to >= value.length) {
+        //         target = to - value.length;
+        //         while((target--) + 1) {
+        //             value.push(undefined);
+        //         }
+        //     }
+        //     value.splice(to, 0, value.splice(from, 1)[0]);
+        // }
+
+        // value.splice(from,1,sec);
+        // value.splice(to,1,first);
     }
 }
