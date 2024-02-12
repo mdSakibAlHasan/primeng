@@ -1,4 +1,4 @@
 
-    <input type="text" placeholder="Input your first name" [formControlName]="'firstName'">
+    <input type="text" placeholder="Input your first name" [formControl]="simpleForm.get('firstName')">
     <app-level-2 [simpleForm]="simpleForm" ></app-level-2>
 
