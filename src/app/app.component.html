@@ -1,1 +1,11 @@
-<app-drag></app-drag>
+<form [formGroup]="simpleForm">
+   <pre> {{simpleForm.value | json}} </pre>
+   <!-- <input type="text" placeholder="Input your first name" [formControlName]="'firstName'"> -->
+    <app-level-1 [simpleForm]="simpleForm"></app-level-1>
+
+    <button (click)="submit()">Submit</button>
+</form>
+
+<!-- <app-level-1 [simpleForm]="simpleForm"></app-level-1>
+
+<button (click)="submit()">Submit</button> -->

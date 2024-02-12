@@ -1,0 +1,6 @@
+<!-- <form [formGroup]="simpleForm">
+    <input type="text" placeholder="Input your last name" formControlName="lastName">
+</form> -->
+
+<input type="text" placeholder="Input your last name" [formControl]="simpleForm.get('lastName')">
+

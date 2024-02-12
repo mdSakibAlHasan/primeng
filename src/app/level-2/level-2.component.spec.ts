@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DragComponent } from './drag.component';
+import { Level2Component } from './level-2.component';
 
-describe('DragComponent', () => {
-  let component: DragComponent;
-  let fixture: ComponentFixture<DragComponent>;
+describe('Level2Component', () => {
+  let component: Level2Component;
+  let fixture: ComponentFixture<Level2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DragComponent]
+      imports: [Level2Component]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DragComponent);
+    fixture = TestBed.createComponent(Level2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
