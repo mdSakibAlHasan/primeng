@@ -13,6 +13,7 @@ export class DragComponent {
 
     items:any
     dragItem: any
+    dragActive: boolean = true
     
     constructor() { }
     
@@ -48,6 +49,10 @@ export class DragComponent {
     endDrag(){
         this.dragItem = null
     }
+
+    disableToggle(){
+
+    }
     
 
     findSelecteItem(item: any){
@@ -74,5 +79,15 @@ export class DragComponent {
             }
             items[to] = fromValue;
         }
+    }
+
+    hold(){
+        console.log("Mouse hold")
+        this.dragActive = false;
+    }
+
+    release(){
+        console.log("Mouse leave")
+        this.dragActive = true;
     }
 }

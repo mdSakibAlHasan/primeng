@@ -1,12 +1,12 @@
 
 <div class="full-body">
     @for(item of items; track $index){
-        <div class="single-div" (onDragStart)="startDrag(item)" (onDragEnd)="endDrag()"  pDraggable="drop">
-            <div pDroppable="drop" (dragenter)="dropItem($event,$index)" (dragleave)="leaveDrag($event)" >
-                {{item}}
-                <div class="icon">
-                    <button class="pi pi-bars"></button>    
-                </div>
+        <div class="single-div" (onDragStart)="startDrag(item)" (onDragEnd)="endDrag()" [pDraggableDisabled]="dragActive"   pDraggable="drop" >
+            <div class="single-row" pDroppable="drop" (dragenter)="dropItem($event,$index)" (dragleave)="leaveDrag($event)" >
+                <div class="row"> {{item}} </div> 
+                <div class="btn">
+                    <button (mousedown)="hold()" (mouseover)="release()"  class="dis pi pi-bars"></button>    
+                </div>     
             </div>
         </div>
     }

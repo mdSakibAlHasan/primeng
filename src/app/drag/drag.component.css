@@ -12,12 +12,29 @@
 }
 
 .single-div{
+    
     background-color: #ffff;
     border: 1px solid #c8c8c8;
-    padding: auto;
-    height: 25px;
+    padding: 2px;
+    /* height: 25px; */
+    margin: 2px;
+    
 }
 
-.icon{
-    align-items: end;
+.single-row{
+    padding: auto;
+}
+
+/* .row{
+    align-items: center;
+    margin-right: 50%;
+} */
+
+.btn{
+    margin-left: 95%;
+    margin-bottom: auto;
+}
+
+.dis{
+    height: 100%;
 }
