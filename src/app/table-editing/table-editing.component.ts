@@ -25,7 +25,8 @@ export class TableEditingComponent {
     this.fetchData.getAllData().subscribe(
       (data: any) => {
         this.jsonData = data;
-        this.uniqueKeys = Object.keys(this.jsonData[0]);
+        // this.uniqueKeys = Object.keys(this.jsonData[0]);
+        this.uniqueKeys.push("Name","Code","CatchmentLevelId","UniqueCode");
       },
       (error: any) => {
         console.error('Error fetching data:', error);
