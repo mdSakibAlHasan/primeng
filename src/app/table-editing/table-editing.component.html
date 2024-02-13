@@ -1,5 +1,5 @@
 <div class="card">
-    <p-table [columns]="uniqueKeys" [value]="jsonData" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [columns]="uniqueKeys" [value]="jsonData" dataKey="Code" editMode="row" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th *ngFor="let col of columns">
@@ -7,15 +7,10 @@
                 </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr>
-                <!-- <td *ngFor="let col of columns">
-                    <input type="text" [(ngModel)]="rowData[col]">
-                    {{ rowData[col.field] }}
-                    
-                </td> -->
+        <ng-template pTemplate="body" let-rowData let-columns="columns" let-editing="editing" let-ri="rowIndex">
+            <tr [pEditableRow]="rowData">
                 @for (col of columns; track $index) {
-                    <td [pEditableColumn]="rowData[col]" pEditableColumnField="code">
+                    <td>
                         <p-cellEditor>
                             <ng-template pTemplate="input">
                                 <input pInputText type="text" [(ngModel)]="rowData[col]" />
@@ -26,6 +21,13 @@
                         </p-cellEditor>
                     </td>
                 }
+                <td>
+                <div class="flex align-items-center justify-content-center gap-2">
+                    <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(rowData)" class="p-button-rounded p-button-text"></button>
+                    <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(rowData)" class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                    <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(rowData, ri)" class="p-button-rounded p-button-text p-button-danger"></button>
+                </div>
+            </td>
                 
             </tr>
         </ng-template>
