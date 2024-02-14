@@ -16,6 +16,15 @@ import { ParserEntryResolver } from 'ngx-dynamic-hooks/lib/components/outlet/opt
 })
 export class AppComponent{
   title = 'Drag and drop';
+  dataPass = {
+    text : this.title,
+    func: this.collectFromChild.bind(this)
+  }
+
+  collectFromChild(text: string){
+    this.title = text
+  }
+  
  
-  componentName = "<app-drag></app-drag>"
+  componentName = 'Here are the dynamic component <app-dynamic [textName]="context.text" (sendText)="context.func($event)" ></app-dynamic> <h1>look asm</h1>'
 }

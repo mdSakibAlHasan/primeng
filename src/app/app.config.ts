@@ -7,9 +7,11 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { DynamicHooksModule, HookParserEntry } from 'ngx-dynamic-hooks';
 import { DragComponent } from './drag/drag.component';
+import { DynamicComponent } from './dynamic/dynamic.component';
 
 const componentParsers: Array<HookParserEntry> = [
   {component: DragComponent},
+  {component: DynamicComponent}
 ];
 
 export const appConfig: ApplicationConfig = {

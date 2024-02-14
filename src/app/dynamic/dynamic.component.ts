@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dynamic',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './dynamic.component.css'
 })
 export class DynamicComponent {
+  @Input() textName: string = ''
+  @Output() sendText = new EventEmitter<string>()
 
+  send(){
+    console.log("click")
+    this.sendText.emit('Dynamic Component');
+  }
 }
