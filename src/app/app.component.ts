@@ -2,10 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { DragComponent } from './drag/drag.component';
-import { DynamicHooksModule, HookParserEntry, OutletService } from 'ngx-dynamic-hooks';
+import { DynamicHooksModule, HookParserEntry, DynamicHooksInheritance } from 'ngx-dynamic-hooks';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { ParserEntryResolver } from 'ngx-dynamic-hooks/lib/components/outlet/options/parserEntryResolver';
 
+
+export const componentParsers: Array<HookParserEntry> = [
+  {component: DragComponent},
+  {component: DynamicComponent}
+];
 
 @Component({
   selector: 'app-root',
