@@ -11,8 +11,10 @@ export class DynamicComponent {
   @Input() textName: string = ''
   @Output() sendText = new EventEmitter<string>()
 
+  numberID =0
   send(){
     console.log("click")
-    this.sendText.emit('Dynamic Component');
+    this.numberID++
+    this.sendText.emit(this.numberID.toString());
   }
 }
