@@ -5,19 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { DynamicHooksModule, HookParserEntry } from 'ngx-dynamic-hooks';
-import { DragComponent } from './drag/drag.component';
-import { DynamicComponent } from './dynamic/dynamic.component';
 
-import {componentParsers} from './app.component'
-
-// const componentParsers: Array<HookParserEntry> = [
-//   {component: DragComponent},
-//   {component: DynamicComponent}
-// ];
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(), provideHttpClient(withFetch()),importProvidersFrom(BrowserAnimationsModule),
-    importProvidersFrom(DynamicHooksModule.forRoot({globalParsers: componentParsers}) )
   ]
 };

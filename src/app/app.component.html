@@ -1,5 +1,2 @@
-<!-- <app-drag></app-drag> -->
-<ngx-dynamic-hooks [content]="componentName" [context]="dataPass"></ngx-dynamic-hooks>
-<br>
-<br>
-<p>This text from child {{title}}</p>
+<app-child-1 [data]="data"></app-child-1>
+<p>Value in parents:  {{data()}}</p>
