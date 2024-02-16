@@ -1,5 +1,9 @@
-<p>child-2 works!</p>
-<p> value in child2:  {{data()}}   </p>
+<!-- <p>child-2 works!</p> -->
+<!-- <p> value in child2:  {{data()}}   </p> -->
 
 <br/>
-<button (click)="changeData()" >Change</button>
+<input type="text" placeholder="Type something" [ngModel]="data()"
+(input)="changeData($any($event.target).value)">
+
+<br/><br/>
+<button (click)="changeData('Change from child-2')" >Change from child-2</button>

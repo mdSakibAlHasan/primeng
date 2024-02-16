@@ -1,17 +1,17 @@
 import { Component, Input, OnInit, SimpleChanges, effect } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-child-2',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './child-2.component.html',
   styleUrl: './child-2.component.css'
 })
 export class Child2Component {
   @Input() data: any
  
-  changeData(){
-    this.data.set("Change by child-2");
-    //console.log("Button");
+  changeData(changeValue: string){
+    this.data.set(changeValue);
   }
 }
