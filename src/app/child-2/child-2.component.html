@@ -2,8 +2,12 @@
 <!-- <p> value in child2:  {{data()}}   </p> -->
 
 <br/>
-<input type="text" placeholder="Type something" [ngModel]="data()"
+<!-- <input type="text" placeholder="Type something" [ngModel]="data()"
 (input)="changeData($any($event.target).value)">
 
 <br/><br/>
-<button (click)="changeData('Change from child-2')" >Change from child-2</button>
+<button (click)="changeData('Change from child-2')" >Change from child-2</button> -->
+
+<div class="card flex justify-content-center">
+    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a City" (onChange)="changeData()"></p-dropdown>
+</div>
